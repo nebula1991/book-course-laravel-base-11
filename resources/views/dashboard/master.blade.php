@@ -11,6 +11,10 @@
         Header
     </header> --}}
 
+    @if (session('status'))
+        {{session('status')}}
+    @endif
+
     @yield('content')
 
 

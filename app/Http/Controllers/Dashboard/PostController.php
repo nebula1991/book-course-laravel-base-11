@@ -83,7 +83,7 @@ class PostController extends Controller
 
         Post::create($request->validated());
 
-        return to_route('post.index');
+        return to_route('post.index')->with('status', value: 'Post created');
 
 
         // $request->validate([
@@ -150,7 +150,7 @@ class PostController extends Controller
         //Image
 
         $post->update($data);
-        return to_route('post.index');
+        return to_route('post.index')->with('status', 'Post update');
     }
 
     /**
@@ -159,6 +159,6 @@ class PostController extends Controller
     public function destroy(Post $post)
     {
         $post->delete();
-        return to_route('post.index');
+        return to_route('post.index')->with('status', 'Post delete');
     }
 }
